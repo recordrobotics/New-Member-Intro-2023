@@ -1,1 +1,2 @@
-# 2022 Rewrite
+# New Member Intro Project
+## 2022-2023
