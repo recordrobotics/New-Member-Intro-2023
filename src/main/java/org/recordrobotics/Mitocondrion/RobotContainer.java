@@ -4,8 +4,8 @@
 
 package org.recordrobotics.Mitocondrion;
 
-import org.recordrobotics.Mitocondrion.commands.ExampleCommand;
 import org.recordrobotics.Mitocondrion.control.*;
+import org.recordrobotics.Mitocondrion.manual.ExampleManual;
 import org.recordrobotics.Mitocondrion.subsystems.ExampleSubsystem;
 
 import edu.wpi.first.wpilibj.GenericHID;
@@ -26,12 +26,12 @@ public class RobotContainer {
 	// The robot's subsystems and commands are defined here...
 	private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-	private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+	private final ExampleManual m_autoCommand = new ExampleManual(m_exampleSubsystem);
 
 	/** The container for the robot. Contains subsystems, OI devices, and commands. */
 	public RobotContainer() {
 		// Configure the button bindings
-		_controlInput = new LegacyControl(RobotMap.Control.LEGACY_GAMEPAD);
+		_controlInput = new SingleControl(RobotMap.Control.LEGACY_GAMEPAD);
 		configureButtonBindings();
 		System.out.println(_controlInput != null);
 	}
