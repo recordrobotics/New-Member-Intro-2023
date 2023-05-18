@@ -2,13 +2,14 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package org.recordrobotics.munchkin;
+package org.recordrobotics.Mitocondrion;
+
+import org.recordrobotics.Mitocondrion.commands.ExampleCommand;
+import org.recordrobotics.Mitocondrion.control.*;
+import org.recordrobotics.Mitocondrion.subsystems.ExampleSubsystem;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import org.recordrobotics.munchkin.commands.ExampleCommand;
-import org.recordrobotics.munchkin.control.*;
-import org.recordrobotics.munchkin.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
