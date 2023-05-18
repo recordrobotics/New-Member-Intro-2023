@@ -14,7 +14,4 @@ public class SingleControl implements IControlInput {
 	public SingleControl(int port) {
 		_gamepad = new XboxController(port);
 	}
-
-	
-
 }
