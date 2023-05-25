@@ -14,4 +14,8 @@ public class SingleControl implements IControlInput {
 	public SingleControl(int port) {
 		_gamepad = new XboxController(port);
 	}
+
+	public boolean button(){
+		return _gamepad.getBButton();
+	}
 }

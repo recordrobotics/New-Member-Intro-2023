@@ -4,6 +4,7 @@
 
 package org.recordrobotics.Mitocondrion;
 
+import org.recordrobotics.Mitocondrion.command.auto.exampleAuto;
 import org.recordrobotics.Mitocondrion.command.manual.ExampleManual;
 import org.recordrobotics.Mitocondrion.control.*;
 import org.recordrobotics.Mitocondrion.subsystems.ExampleSubsystem;
@@ -53,7 +54,7 @@ public class RobotContainer {
 	 */
 	public Command getAutonomousCommand() {
 		// An ExampleCommand will run in autonomous
-		return m_autoCommand;
+		return new exampleAuto(m_exampleSubsystem, 0.1, 3, 0.1);
 	}
 	
 	/**

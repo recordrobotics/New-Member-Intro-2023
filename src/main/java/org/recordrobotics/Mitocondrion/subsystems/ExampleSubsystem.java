@@ -15,6 +15,16 @@ public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {}
 
+  private CANSparkMax _motor = new CANSparkMax(0, MotorType.kBrushless);
+
+  public void spin(double speed) {
+    _motor.set(speed);
+  }
+
+  public double encoder() {
+    return _motor.getEncoder().getPosition();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

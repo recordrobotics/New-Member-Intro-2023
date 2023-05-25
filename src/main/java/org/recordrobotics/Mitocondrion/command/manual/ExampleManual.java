@@ -15,6 +15,8 @@ public class ExampleManual extends CommandBase {
   private final ExampleSubsystem m_subsystem;
   private final SingleControl m_control;
 
+  private double speed = 0.1;
+
   /**
    * Creates a new ExampleCommand.
    *
@@ -34,7 +36,11 @@ public class ExampleManual extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    if(m_control.button()){
+      m_subsystem.spin(speed);
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override
