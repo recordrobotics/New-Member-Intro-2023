@@ -8,6 +8,10 @@ public class RobotMap {
 	/**
 	 * Control ports (PC USB)
 	 */
+	public class ExampleSubsystem {
+		public static final int MOTOR_PORT = 5;
+	}
+
 	public class Control {
 		// LegacyControl
 		public static final int LEGACY_GAMEPAD = 0;
@@ -16,4 +20,6 @@ public class RobotMap {
 		public static final int DOUBLE_GAMEPAD_1 = 0;
 		public static final int DOUBLE_GAMEPAD_2 = 1;
 	}
+
+	public static Object ExampleSubsystem;
 }

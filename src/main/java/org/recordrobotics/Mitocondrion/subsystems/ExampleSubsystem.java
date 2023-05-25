@@ -4,11 +4,18 @@
 
 package org.recordrobotics.Mitocondrion.subsystems;
 
+import org.recordrobotics.Mitocondrion.RobotMap;
+
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {}
+
+  private CANSparkMax _motor = new CANSparkMax(5, MotorType.kBrushless);
 
   @Override
   public void periodic() {
