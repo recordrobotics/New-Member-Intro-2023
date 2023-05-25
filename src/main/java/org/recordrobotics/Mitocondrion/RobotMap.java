@@ -15,10 +15,6 @@ public class RobotMap {
 	public class Control {
 		// LegacyControl
 		public static final int LEGACY_GAMEPAD = 0;
-
-		// DoubleControl
-		public static final int DOUBLE_GAMEPAD_1 = 0;
-		public static final int DOUBLE_GAMEPAD_2 = 1;
 	}
 
 	public static Object ExampleSubsystem;
