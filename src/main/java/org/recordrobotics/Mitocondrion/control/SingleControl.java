@@ -10,8 +10,15 @@ public class SingleControl implements IControlInput {
 	// Toggles for buttons - inversed when button is pressed
 	private boolean _btnX;
 	private boolean _btnY;
+	private double target = 0;
 
 	public SingleControl(int port) {
 		_gamepad = new XboxController(port);
+	}
+
+	public double arm(){
+		if(_gamepad.getLeftTriggerAxis() > TRIGGER_THRESHOLD) target += 0.1;
+		if(_gamepad.getRightTriggerAxis() > TRIGGER_THRESHOLD) target -= 0.1;
+		return target;
 	}
 }
