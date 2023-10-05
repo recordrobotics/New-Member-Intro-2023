@@ -1,4 +1,4 @@
-package org.recordrobotics.Mitocondrion.control;
+package org.recordrobotics.intro.control;
 
 /**
  * Specifies all control inputs needed for the robot

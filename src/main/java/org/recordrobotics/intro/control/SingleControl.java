@@ -1,4 +1,4 @@
-package org.recordrobotics.Mitocondrion.control;
+package org.recordrobotics.intro.control;
 
 import edu.wpi.first.wpilibj.XboxController;
 
