@@ -34,11 +34,19 @@ public class ExampleManual extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    if(m_control.getFlagState() && m_subsystem.encoder() < 10){
+      m_subsystem.spin(0.3);
+    } else if(!m_control.getFlagState() && m_subsystem.encoder() > 0){
+      m_subsystem.spin(-0.3);
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_subsystem.spin(0);
+  }
 
   // Returns true when the command should end.
   @Override
