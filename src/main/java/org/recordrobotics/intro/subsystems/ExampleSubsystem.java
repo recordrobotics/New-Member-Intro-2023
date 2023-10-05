@@ -4,6 +4,10 @@
 
 package org.recordrobotics.intro.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleSubsystem extends SubsystemBase {
@@ -12,8 +16,12 @@ public class ExampleSubsystem extends SubsystemBase {
 
   private CANSparkMax _motor = new CANSparkMax(0, MotorType.kBrushless);
 
+  DigitalInput limitSwitch = new DigitalInput(0);
+
   public void spin(double speed) {
-    _motor.set(speed);
+    if(!limitSwitch.get()){
+      _motor.set(speed);
+    }
   }
 
   public double encoder() {
