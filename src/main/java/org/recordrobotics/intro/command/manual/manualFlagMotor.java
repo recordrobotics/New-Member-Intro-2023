@@ -5,27 +5,31 @@
 package org.recordrobotics.intro.command.manual;
 
 import org.recordrobotics.intro.control.SingleControl;
-import org.recordrobotics.intro.subsystems.ExampleSubsystem;
+import org.recordrobotics.intro.subsystems.FlagMotor;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ExampleManual extends CommandBase {
+public class manualFlagMotor extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final ExampleSubsystem m_subsystem;
-  private final SingleControl m_control;
+  private final FlagMotor _motor;
+  private final SingleControl _control;
 
   /**
    * Creates a new ExampleCommand.
    *
-   * @param subsystem The subsystem used by this command.
+   * @param m_FlagMotor The subsystem used by this command.
    */
-  public ExampleManual(ExampleSubsystem subsystem, SingleControl control) {
-    m_subsystem = subsystem;
-    m_control = control;
+  public manualFlagMotor(FlagMotor m_FlagMotor, SingleControl control) {
+    _motor = m_FlagMotor;
+    _control = control;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(_motor);
+  }
+
+
+  private void addRequirements(manualFlagMotor subsystem) {
   }
 
   // Called when the command is initially scheduled.
@@ -34,7 +38,14 @@ public class ExampleManual extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    double motorSpeed = _motor.getSpeed();
+    if(_control.turnMotor()) {
+      if(motorSpeed > 0) {
+        _motor.turn(0.2);
+      }
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override
