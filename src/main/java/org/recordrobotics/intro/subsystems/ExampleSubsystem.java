@@ -7,21 +7,29 @@ package org.recordrobotics.intro.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleSubsystem extends SubsystemBase {
   
   private static final double GEAR_RATIO = 1;
   private CANSparkMax _motor = new CANSparkMax(5, MotorType.kBrushless);
+  private AddressableLED led = new AddressableLED(0);
   
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {
     _motor.set(0);
     _motor.getEncoder().setPositionConversionFactor(GEAR_RATIO);
+    led.stop();
   }
 
   public void spin(double speed){
     _motor.set(speed);
+  }
+
+  public void led(boolean on){
+    if(on) led.start();
+    else led.stop();
   }
 
   public double encoder(){

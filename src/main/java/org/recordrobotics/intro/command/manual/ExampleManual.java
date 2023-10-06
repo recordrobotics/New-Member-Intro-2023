@@ -35,10 +35,12 @@ public class ExampleManual extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(m_control.getFlagState() && m_subsystem.encoder() < 10){
-      m_subsystem.spin(0.3);
+    if(m_control.getFlagState()){
+      if(m_subsystem.encoder() < 10) m_subsystem.spin(0.3);
+      else m_subsystem.led(true);
     } else if(!m_control.getFlagState() && m_subsystem.encoder() > 0){
       m_subsystem.spin(-0.3);
+      m_subsystem.led(false);
     }
   }
 
