@@ -29,17 +29,28 @@ public class exampleAuto extends CommandBase {
   @Override
   public void initialize() {}
 
+  boolean up = true;
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    if(m_subsystem.encoder() < 10 && up) m_subsystem.spin(0.3);
+    else up = false;
+    if(!up && m_subsystem.encoder() > 0) {
+        m_subsystem.spin(-0.3);
+        m_subsystem.led(true);
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_subsystem.spin(0);
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return true;
+    return m_subsystem.encoder() < 0;
   }
 }
