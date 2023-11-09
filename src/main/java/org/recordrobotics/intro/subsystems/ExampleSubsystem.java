@@ -5,14 +5,10 @@
 package org.recordrobotics.intro.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-CanSparkMax private CANSparkMax [motor name] = new CANSparkMax([motor port], MotorType.kBrushless);
 
-Falcon500 private WPI_TalonFX [motor name] = new WPI_TalonFX(1);
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {
-    new WPI_TalonFX(1).set([50]);
-  }
+  public ExampleSubsystem() {}
 
   @Override
   public void periodic() {
